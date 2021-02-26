@@ -1,6 +1,6 @@
 # bddframework
 This is a selenium junit bdd framework with some practise selenium scripts
-1.) Create a folder called "bddframework"
+1.) git clone <this repo>
 2.) go to the directory "bddframework" created in step 1
 3.) Run the following command:
 
