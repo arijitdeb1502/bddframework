@@ -2,6 +2,11 @@ package stepdefinitions;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 import org.openqa.selenium.WebElement;
 
 import commontestfunctions.Common;
@@ -47,13 +52,12 @@ public class CalenderTestSteps extends Common{
 	@When("^I select checkin day as \"([^\"]*)\"$")
 	public void i_select_checkin_day_as(String checkInDay) throws Throwable {
 
-	    for(WebElement calDayElement:chp.getCurrentCalDays()) {
-
-	    	if(calDayElement.getText().equals(checkInDay)) {
-	    		calDayElement.click();
-	    		break;
-	    	}
-	    }
+		WebElement checkindayElem=chp.getCurrentCalDays().stream()
+				  .filter(element->element.getText().equals(checkInDay))
+				  .limit(1)
+				  .collect(Collectors.toList()).get(0);
+		
+		checkindayElem.click();
 	}
 	
 
@@ -62,17 +66,20 @@ public class CalenderTestSteps extends Common{
 		while(!chp.getcurrentCalMonth().getText().equals(checkoutMonth)) {
 		    chp.getNextMonthClicker().click();
 		}
+		
 	}
 
 	@When("^I select checkout day as \"([^\"]*)\"$")
 	public void i_select_checkout_day_as(String checkoutDay) throws Throwable {
-		for(WebElement calDayElement:chp.getCurrentCalDays()) {
-
-	    	if(calDayElement.getText().equals(checkoutDay)) {
-	    		calDayElement.click();
-	    		break;
-	    	}
-	    }
+		
+		WebElement checkoutdayElem=chp.getCurrentCalDays().stream()
+									  .filter(element->element.getText().equals(checkoutDay))
+									  .limit(1)
+									  .collect(Collectors.toList()).get(0);
+		
+		checkoutdayElem.click();
+	
+		
 	}
 	
 	@When("^I click on the search button$")
