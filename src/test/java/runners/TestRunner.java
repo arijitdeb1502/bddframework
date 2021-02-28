@@ -7,7 +7,7 @@ import cucumber.api.junit.Cucumber;
 @CucumberOptions(
  features = "src/test/resources/functionalTests",
  glue= {"stepdefinitions"},
- tags= {}
+ tags= {"@calendar"}
  )
 
 public class TestRunner {
