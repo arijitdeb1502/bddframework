@@ -5,6 +5,7 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import commontestfunctions.Log;
 
 public class CalendarHomePage {
 	public WebDriver driver;
@@ -19,38 +20,62 @@ public class CalendarHomePage {
 	By displayText=By.cssSelector(".sr_header ");
 	
 	public CalendarHomePage(WebDriver driver) {
+		
 		this.driver = driver;
+
 	}
 	
 	public WebElement getSearchDestinationInputBox() {
+		
+		Log.info("finding search destination textbox element");
+
 		return driver.findElement(searchDestinationInputBox);
 	}
 	
 	public WebElement getcheckinTab() {
+		
+		Log.info("finding calendar checkin tab element ");
+
 		return driver.findElement(checkinTab);
 	}
 	
 	public WebElement getcheckoutTab() {
+		
+		Log.info("finding calendar checkout tab element");
+
 		return driver.findElement(checkoutTab);
 	}
 	
 	public WebElement getcurrentCalMonth() {
+		
+		Log.info("finding calendar checkout tab element");
+
 		return driver.findElement(currentCalMonth);
 	}
 	
 	public WebElement getNextMonthClicker() {
+		
+		Log.info("finding next month clicker element");
+		
 		return driver.findElement(nextMonthClicker);
 	}
 	
 	public List<WebElement> getCurrentCalDays() {
+		
+		Log.info("finding list of calendar days element");
 		return driver.findElements(currentCalDay);
+	
 	}
 	
 	public WebElement getSearchButton() {
+		
+		Log.info("finding the search button");
 		return driver.findElement(searchButton);
 	}
 	
 	public WebElement getDisplayText() {
+		
+		Log.info("Finding the display test result");
 		return driver.findElement(displayText);
 	}
 	

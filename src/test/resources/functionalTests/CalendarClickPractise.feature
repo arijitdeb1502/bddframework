@@ -12,4 +12,4 @@ Scenario: Display search result based on checkin and checkout date
 	And select checkout Month as "November 2021"
 	And I select checkout day as "3"
 	And I click on the search button
-	Then I find "Jammu & Kashmir: 247 properties found" in the webpage 	
+	Then I find "Jammu & Kashmir: 254 properties found" in the webpage 	
